@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+    
+    <entry>
+      <title><![CDATA[切换Web应用主题色的 (KU)]]></title>
+      <url>/2017/12/14/color-switch.intro/</url>
+      <content type="html"><![CDATA[<h1 id="color-switch"><a href="#color-switch" class="headerlink" title="color-switch"></a>color-switch</h1><p>用于切换Web应用主题色</p>
+<p>只需在进入应用时调用该方法</p>
+<p>调用后会监听 DOM Tree 及 StyleTag 的变化，动态修改内部相关的色值</p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><ul>
+<li>不同客户对产品有不同的主题色要求</li>
+<li>修改主题色，而不修改样式文件</li>
+<li>用户切换主题色后…</li>
+</ul>
+<h3 id="Demo"><a href="#Demo" class="headerlink" title="Demo"></a>Demo</h3><p><a href="https://xfcdxg.github.io/color-switch/">Demo</a></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p><a href="https://github.com/xfcdxg/color-switch-example.git" target="_blank" rel="external">Example</a></p>
+<h3 id="更新范围"><a href="#更新范围" class="headerlink" title="更新范围"></a>更新范围</h3><p>DOMElement</p>
+<ul>
+<li>color</li>
+<li>border-color</li>
+<li>background-color</li>
+</ul>
+<p>StyleSheet</p>
+<ul>
+<li>color</li>
+<li>border-color</li>
+<li>background-color</li>
+</ul>
+<p>SVG</p>
+<ul>
+<li>fill</li>
+</ul>
+<h3 id="🌰"><a href="#🌰" class="headerlink" title="🌰"></a>🌰</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> colorSwitch <span class="keyword">from</span> <span class="string">'color-switch'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> fromColorList = [</div><div class="line">  [<span class="string">'000'</span>, <span class="string">'rgb(255, 255, 255)'</span>],  <span class="comment">// [hex (black), rgb (white)] to #50A5FC (blue)</span></div><div class="line">  [<span class="string">'#007eff'</span>]                     <span class="comment">// [hex (blue)] to rgb(255, 86, 12) (red)</span></div><div class="line">]</div><div class="line"><span class="keyword">const</span> toColorList = [<span class="string">'#50A5FC'</span>, <span class="string">'rgb(255, 86, 12)'</span>] <span class="comment">// [hex (blue), rgb (red)]</span></div><div class="line"></div><div class="line">colorSwitch(fromColorList, toColorList)</div></pre></td></tr></table></figure>
+<h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><blockquote>
+<p>如果是 SSR，建议在 Client 端调用（因为 Server 端不支持…略略略）</p>
+<p>暂不支持来回切换和局部设置…</p>
+</blockquote>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><ul>
+<li><a href="https://github.com/xfcdxg/color-switch" target="_blank" rel="external">Github</a></li>
+<li><a href="https://www.npmjs.com/package/color-switch" target="_blank" rel="external">Npm</a></li>
+<li><a href="https://github.com/xfcdxg/color-switch/issues" target="_blank" rel="external">欢迎丢转</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+            <category> Javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[前端函数式功能库]]></title>
+      <url>/2017/12/01/mulan.intro/</url>
+      <content type="html"><![CDATA[<h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><ul>
+<li><p><a href="https://github.com/xfcdxg/mulan-lib" target="_blank" rel="external">mulan-lib</a> 是个前端开发功能库。</p>
+</li>
+<li><p>基于 <a href="https://github.com/ramda/ramda" target="_blank" rel="external">Ramda</a>，以 <a href="https://github.com/llh911001/mostly-adequate-guide-chinese" target="_blank" rel="external">函数式编程</a> 来实现。</p>
+</li>
+<li><p>现阶段的功能模块有：Ajax操作、Url处理、日期处理、Storage操作等。</p>
+</li>
+<li><p>支持 SSR（如：next / nuxt）</p>
+</li>
+</ul>
+<h3 id="用法（🌰）"><a href="#用法（🌰）" class="headerlink" title="用法（🌰）"></a>用法（🌰）</h3><p>  应用场景：隐藏敏感信息</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; mask &#125; <span class="keyword">from</span> <span class="string">'mulan-lib'</span></div><div class="line"></div><div class="line">mask(<span class="number">3</span>, <span class="number">4</span>, <span class="string">'13700000000'</span>)        <span class="comment">// -&gt; 137****0000</span></div><div class="line">mask(<span class="number">3</span>, <span class="number">4</span>, <span class="string">'13700000000'</span>, <span class="string">'#'</span>)   <span class="comment">// -&gt; 137####0000</span></div><div class="line">mask(<span class="number">0</span>, <span class="number">-3</span>, <span class="string">'123456789'</span>)         <span class="comment">// -&gt; 123456***</span></div><div class="line">mask(<span class="number">5</span>, <span class="number">-2</span>, <span class="string">'123456789'</span>)         <span class="comment">// -&gt; 12**56789</span></div></pre></td></tr></table></figure>
+<p>  应用场景：格式化日期</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; moment &#125; <span class="keyword">from</span> <span class="string">'mulan-lib'</span></div><div class="line"></div><div class="line"><span class="comment">// Format</span></div><div class="line">moment(<span class="string">'YYYY-MM-DD HH:mm:ss'</span>)()    <span class="comment">// -&gt; 2017-10-16 13:57:30</span></div><div class="line">moment(<span class="string">'YYYY/MM/DD'</span>)()             <span class="comment">// -&gt; 2017/10/16</span></div><div class="line">moment(<span class="string">'x'</span>)()                      <span class="comment">// -&gt; 1508133450000</span></div><div class="line">moment(<span class="string">'X'</span>)()                      <span class="comment">// -&gt; 1508133450</span></div><div class="line">moment(<span class="string">'day'</span>)()                    <span class="comment">// -&gt; 1</span></div><div class="line">moment(<span class="string">'date'</span>)()                   <span class="comment">// -&gt; 16</span></div></pre></td></tr></table></figure>
+<p>  应用场景：日期计算</p>
+  <figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> &#123; addInterval, timeDuration, moment &#125; <span class="keyword">from</span> <span class="string">'mulan-lib'</span></div><div class="line"><span class="keyword">import</span> &#123; compose &#125; <span class="keyword">from</span> <span class="string">'ramda'</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>()     <span class="comment">// -&gt; 2017-10-16 xx:xx:xx</span></div><div class="line"><span class="comment">// 加一天</span></div><div class="line">addInterval(<span class="number">1</span>, <span class="string">'d'</span>, d)   <span class="comment">// -&gt; 1508219850000</span></div><div class="line"><span class="comment">// 减一天</span></div><div class="line">addInterval(<span class="number">-1</span>, <span class="string">'d'</span>, d)  <span class="comment">// -&gt; 1508047050000</span></div><div class="line"><span class="comment">// 加一小时</span></div><div class="line">addInterval(<span class="number">1</span>, <span class="string">'h'</span>, d)</div><div class="line"><span class="comment">// 加一分钟</span></div><div class="line">addInterval(<span class="number">1</span>, <span class="string">'m'</span>, d)</div><div class="line"><span class="comment">// 加一秒钟</span></div><div class="line">addInterval(<span class="number">1</span>, <span class="string">'s'</span>, d)</div><div class="line"></div><div class="line"><span class="comment">// 加一天并格式化</span></div><div class="line">compose(moment(<span class="string">'YYYY-MM-DD'</span>), addInterval(<span class="number">1</span>, <span class="string">'d'</span>))(d) <span class="comment">// =&gt; 2017-10-17</span></div><div class="line"></div><div class="line"><span class="comment">// 计算时间间隔</span></div><div class="line"><span class="keyword">const</span> st = <span class="string">'2017-10-14 12:00:00'</span></div><div class="line"><span class="keyword">const</span> et = <span class="string">'2017-10-16 13:09:30'</span></div><div class="line"></div><div class="line">timeDuration(moment(<span class="string">'x'</span>)(st), moment(<span class="string">'x'</span>)(et)) <span class="comment">// -&gt; [ 2, 1, 9, 30 ]</span></div></pre></td></tr></table></figure>
+<p>  ……</p>
+<h3 id="更多"><a href="#更多" class="headerlink" title="更多"></a>更多</h3><ul>
+<li><a href="https://github.com/xfcdxg/mulan-lib" target="_blank" rel="external">Github</a></li>
+<li><a href="https://www.npmjs.com/package/mulan-lib" target="_blank" rel="external">Npm</a></li>
+<li><a href="https://github.com/xfcdxg/mulan-lib/issues" target="_blank" rel="external">欢迎丢转</a></li>
+</ul>
+]]></content>
+      
+        <categories>
+            
+            <category> 前端 </category>
+            
+            <category> Javascript </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Javascript </tag>
+            
+        </tags>
+        
+    </entry>
+    
+  
+  
+</search>
